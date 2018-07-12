@@ -21,8 +21,9 @@ if ($posting_type=="Transaction") {
   $q=mysqli_query($con,"SELECT 
   FORMAT((fngetFeedback(1,'transaction')) / COUNT(*), 2) * 100 AS `notsatisfied`,
   FORMAT((fngetFeedback(2,'transaction')) / COUNT(*), 2) * 100 AS `somewhatsatisfied`,
-  FORMAT((fngetFeedback(3,'transaction')) / COUNT(*), 2) * 100 AS`satisfied`,
-  FORMAT((fngetFeedback(4,'transaction')) / COUNT(*), 2) * 100 AS `verysatisfied`,
+  FORMAT((fngetFeedback(3,'transaction')) / COUNT(*), 2) * 100 AS`neutral`,
+  FORMAT((fngetFeedback(4,'transaction')) / COUNT(*), 2) * 100 AS`satisfied`,
+  FORMAT((fngetFeedback(5,'transaction')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
    FROM `tbl_register`");
 }
@@ -30,8 +31,9 @@ if ($posting_type=="Pricing") {
   $q=mysqli_query($con,"SELECT 
   FORMAT((fngetFeedback(1,'pricing')) / COUNT(*), 2) * 100 AS `notsatisfied`,
   FORMAT((fngetFeedback(2,'pricing')) / COUNT(*), 2) * 100 AS `somewhatsatisfied`,
-  FORMAT((fngetFeedback(3,'pricing')) / COUNT(*), 2) * 100 AS`satisfied`,
-  FORMAT((fngetFeedback(4,'pricing')) / COUNT(*), 2) * 100 AS `verysatisfied`,
+  FORMAT((fngetFeedback(3,'pricing')) / COUNT(*), 2) * 100 AS`neutral`,
+  FORMAT((fngetFeedback(4,'pricing')) / COUNT(*), 2) * 100 AS`satisfied`,
+  FORMAT((fngetFeedback(5,'pricing')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
    FROM `tbl_register`");
 }
@@ -39,8 +41,9 @@ if ($posting_type=="Relationship") {
   $q=mysqli_query($con,"SELECT 
   FORMAT((fngetFeedback(1,'relationship')) / COUNT(*), 2) * 100 AS `notsatisfied`,
   FORMAT((fngetFeedback(2,'relationship')) / COUNT(*), 2) * 100 AS `somewhatsatisfied`,
-  FORMAT((fngetFeedback(3,'relationship')) / COUNT(*), 2) * 100 AS`satisfied`,
-  FORMAT((fngetFeedback(4,'relationship')) / COUNT(*), 2) * 100 AS `verysatisfied`,
+  FORMAT((fngetFeedback(3,'relationship')) / COUNT(*), 2) * 100 AS `neutral`,
+  FORMAT((fngetFeedback(4,'relationship')) / COUNT(*), 2) * 100 AS`satisfied`,
+  FORMAT((fngetFeedback(5,'relationship')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
    FROM `tbl_register`");
 }
@@ -48,8 +51,9 @@ if ($posting_type=="Overall") {
   $q=mysqli_query($con,"SELECT 
   FORMAT((fngetFeedback(1,'overall')) / COUNT(*), 2) * 100 AS `notsatisfied`,
   FORMAT((fngetFeedback(2,'overall')) / COUNT(*), 2) * 100 AS `somewhatsatisfied`,
-  FORMAT((fngetFeedback(3,'overall')) / COUNT(*), 2) * 100 AS`satisfied`,
-  FORMAT((fngetFeedback(4,'overall')) / COUNT(*), 2) * 100 AS `verysatisfied`,
+  FORMAT((fngetFeedback(3,'overall')) / COUNT(*), 2) * 100 AS `neutral`,
+  FORMAT((fngetFeedback(4,'overall')) / COUNT(*), 2) * 100 AS`satisfied`,
+  FORMAT((fngetFeedback(5,'overall')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
    FROM `tbl_register`");
 }

@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.5-10.1.16-MariaDB : Database - nstw
+SQLyog Ultimate v12.09 (64 bit)
+MySQL - 10.1.30-MariaDB : Database - nstw
 *********************************************************************
 */
 
@@ -17,8 +17,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`nstw` /*!40100 DEFAULT CHARACTER SET la
 USE `nstw`;
 
 /*Table structure for table `tbl_register` */
-
-DROP TABLE IF EXISTS `tbl_register`;
 
 CREATE TABLE `tbl_register` (
   `register_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -41,7 +39,6 @@ insert  into `tbl_register`(`register_id`,`full_name`,`gender`,`organization`,`e
 
 /* Function  structure for function  `fnCountElements` */
 
-/*!50003 DROP FUNCTION IF EXISTS `fnCountElements` */;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fnCountElements`(
@@ -61,65 +58,8 @@ BEGIN
     END */$$
 DELIMITER ;
 
-/* Function  structure for function  `fngetGender` */
-
-/*!50003 DROP FUNCTION IF EXISTS `fngetGender` */;
-DELIMITER $$
-
-/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fngetGender`(igender VARCHAR(250)) RETURNS decimal(10,0)
-BEGIN
-	IF (igender = "Male") THEN
-		RETURN (SELECT COUNT(*) AS Male FROM tbl_register WHERE gender=igender);
-	ELSEIF (igender = "Female") THEN
-		RETURN (SELECT COUNT(*) AS Female FROM tbl_register WHERE gender=igender);
-	END IF;
-    END */$$
-DELIMITER ;
-
-/* Function  structure for function  `fngetOrganization` */
-
-/*!50003 DROP FUNCTION IF EXISTS `fngetOrganization` */;
-DELIMITER $$
-
-/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fngetOrganization`(iorganization VARCHAR(250)) RETURNS varchar(100) CHARSET latin1
-BEGIN
-	IF (iorganization = 1) THEN
-		RETURN (SELECT COUNT(*) AS academe FROM tbl_register WHERE organization=iorganization);
-	ELSEIF (iorganization = 2) THEN
-		RETURN (SELECT COUNT(*) AS govtagency FROM tbl_register WHERE organization=iorganization);
-	ELSEIF (iorganization = 3) THEN
-		RETURN (SELECT COUNT(*) AS industry FROM tbl_register WHERE organization=iorganization);
-	ELSEIF (iorganization = 4) THEN
-		RETURN (SELECT COUNT(*) AS peopleorg FROM tbl_register WHERE organization=iorganization);
-	END IF;
-    END */$$
-DELIMITER ;
-
-/* Function  structure for function  `fnSplit` */
-
-/*!50003 DROP FUNCTION IF EXISTS `fnSplit` */;
-DELIMITER $$
-
-/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fnSplit`(
-	str VARCHAR(255) ,
-	delim VARCHAR(12) ,
-	pos INT
-) RETURNS varchar(255) CHARSET utf8
-RETURN REPLACE(
-	SUBSTRING(
-		SUBSTRING_INDEX(str , delim , pos) ,
-		CHAR_LENGTH(
-			SUBSTRING_INDEX(str , delim , pos - 1)
-		) + 1
-	) ,
-	delim ,
-	''
-) */$$
-DELIMITER ;
-
 /* Function  structure for function  `fngetEvent` */
 
-/*!50003 DROP FUNCTION IF EXISTS `fngetEvent` */;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fngetEvent`(ievent VARCHAR(250)) RETURNS varchar(100) CHARSET latin1
@@ -144,7 +84,6 @@ DELIMITER ;
 
 /* Function  structure for function  `fngetEvent2` */
 
-/*!50003 DROP FUNCTION IF EXISTS `fngetEvent2` */;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fngetEvent2`(ievent VARCHAR(250)) RETURNS varchar(100) CHARSET latin1
@@ -168,9 +107,61 @@ BEGIN
     END */$$
 DELIMITER ;
 
+/* Function  structure for function  `fngetGender` */
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fngetGender`(igender VARCHAR(250)) RETURNS decimal(10,0)
+BEGIN
+	IF (igender = "Male") THEN
+		RETURN (SELECT COUNT(*) AS Male FROM tbl_register WHERE gender=igender);
+	ELSEIF (igender = "Female") THEN
+		RETURN (SELECT COUNT(*) AS Female FROM tbl_register WHERE gender=igender);
+	END IF;
+    END */$$
+DELIMITER ;
+
+/* Function  structure for function  `fngetOrganization` */
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fngetOrganization`(iorganization VARCHAR(250)) RETURNS varchar(100) CHARSET latin1
+BEGIN
+	IF (iorganization = 1) THEN
+		RETURN (SELECT COUNT(*) AS academe FROM tbl_register WHERE organization=iorganization);
+	ELSEIF (iorganization = 2) THEN
+		RETURN (SELECT COUNT(*) AS govtagency FROM tbl_register WHERE organization=iorganization);
+	ELSEIF (iorganization = 3) THEN
+		RETURN (SELECT COUNT(*) AS industry FROM tbl_register WHERE organization=iorganization);
+	ELSEIF (iorganization = 4) THEN
+		RETURN (SELECT COUNT(*) AS peopleorg FROM tbl_register WHERE organization=iorganization);
+	END IF;
+    END */$$
+DELIMITER ;
+
+/* Function  structure for function  `fnSplit` */
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fnSplit`(
+	str VARCHAR(255) ,
+	delim VARCHAR(12) ,
+	pos INT
+) RETURNS varchar(255) CHARSET utf8
+RETURN REPLACE(
+	SUBSTRING(
+		SUBSTRING_INDEX(str , delim , pos) ,
+		CHAR_LENGTH(
+			SUBSTRING_INDEX(str , delim , pos - 1)
+		) + 1
+	) ,
+	delim ,
+	''
+) */$$
+DELIMITER ;
+
 /* Function  structure for function  `fngetFeedback` */
 
-/*!50003 DROP FUNCTION IF EXISTS `fngetFeedback` */;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fngetFeedback`(itype VARCHAR(250),
@@ -182,9 +173,11 @@ if (iq='transaction') then
 	ELSEIF (itype = 2) THEN
 		RETURN (SELECT count(`transaction`) AS somewhatsatisfied FROM tbl_register WHERE `transaction`=2);
 	ELSEIF (itype = 3) THEN
-		RETURN (SELECT count(`transaction`) AS satisfied FROM tbl_register WHERE `transaction`=3);
+		RETURN (SELECT COUNT(`transaction`) AS neutral FROM tbl_register WHERE `transaction`=3);
 	ELSEIF (itype = 4) THEN
-		RETURN (SELECT count(`transaction`) AS verysatisfied FROM tbl_register WHERE `transaction`=4);
+		RETURN (SELECT count(`transaction`) AS satisfied FROM tbl_register WHERE `transaction`=4);
+	ELSEIF (itype = 5) THEN
+		RETURN (SELECT count(`transaction`) AS verysatisfied FROM tbl_register WHERE `transaction`=5);
 	END IF;
 end if;
 IF (iq='pricing') THEN
@@ -193,9 +186,11 @@ IF (iq='pricing') THEN
 	ELSEIF (itype = 2) THEN
 		RETURN (SELECT COUNT(`pricing`) AS somewhatsatisfied FROM tbl_register WHERE `pricing`=2);
 	ELSEIF (itype = 3) THEN
-		RETURN (SELECT COUNT(`pricing`) AS satisfied FROM tbl_register WHERE `pricing`=3);
+		RETURN (SELECT COUNT(`pricing`) AS neutral FROM tbl_register WHERE `pricing`=3);
 	ELSEIF (itype = 4) THEN
-		RETURN (SELECT COUNT(`pricing`) AS verysatisfied FROM tbl_register WHERE `pricing`=4);
+		RETURN (SELECT COUNT(`pricing`) AS satisfied FROM tbl_register WHERE `pricing`=4);
+	ELSEIF (itype = 5) THEN
+		RETURN (SELECT COUNT(`pricing`) AS verysatisfied FROM tbl_register WHERE `pricing`=5);
 	END IF;
 END IF;
 IF (iq='relationship') THEN
@@ -204,9 +199,11 @@ IF (iq='relationship') THEN
 	ELSEIF (itype = 2) THEN
 		RETURN (SELECT COUNT(`relationship`) AS somewhatsatisfied FROM tbl_register WHERE `relationship`=2);
 	ELSEIF (itype = 3) THEN
-		RETURN (SELECT COUNT(`relationship`) AS satisfied FROM tbl_register WHERE `relationship`=3);
+		RETURN (SELECT COUNT(`relationship`) AS neutral FROM tbl_register WHERE `relationship`=3);
 	ELSEIF (itype = 4) THEN
-		RETURN (SELECT COUNT(`relationship`) AS verysatisfied FROM tbl_register WHERE `relationship`=4);
+		RETURN (SELECT COUNT(`relationship`) AS satisfied FROM tbl_register WHERE `relationship`=4);
+	ELSEIF (itype = 5) THEN
+		RETURN (SELECT COUNT(`relationship`) AS verysatisfied FROM tbl_register WHERE `relationship`=5);
 	END IF;
 END IF;
 IF (iq='overall') THEN
@@ -215,9 +212,11 @@ IF (iq='overall') THEN
 	ELSEIF (itype = 2) THEN
 		RETURN (SELECT COUNT(`overall`) AS somewhatsatisfied FROM tbl_register WHERE `overall`=2);
 	ELSEIF (itype = 3) THEN
-		RETURN (SELECT COUNT(`overall`) AS satisfied FROM tbl_register WHERE `overall`=3);
+		RETURN (SELECT COUNT(`overall`) AS neutral FROM tbl_register WHERE `overall`=3);
 	ELSEIF (itype = 4) THEN
-		RETURN (SELECT COUNT(`overall`) AS verysatisfied FROM tbl_register WHERE `overall`=4);
+		RETURN (SELECT COUNT(`overall`) AS satisfied FROM tbl_register WHERE `overall`=4);
+	ELSEIF (itype = 5) THEN
+		RETURN (SELECT COUNT(`overall`) AS verysatisfied FROM tbl_register WHERE `overall`=5);
 	END IF;
 END IF;
     END */$$
@@ -225,7 +224,6 @@ DELIMITER ;
 
 /* Function  structure for function  `fnGetMarketplace` */
 
-/*!50003 DROP FUNCTION IF EXISTS `fnGetMarketplace` */;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` FUNCTION `fnGetMarketplace`(imarketplace VARCHAR(250)) RETURNS varchar(100) CHARSET latin1
@@ -250,11 +248,9 @@ DELIMITER ;
 
 /* Procedure structure for procedure `spGetDynamicChart` */
 
-/*!50003 DROP PROCEDURE IF EXISTS  `spGetDynamicChart` */;
-
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`nstw`@`%` PROCEDURE `spGetDynamicChart`(
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spGetDynamicChart`(
 itype varchar(100))
     READS SQL DATA
 BEGIN
@@ -336,11 +332,9 @@ DELIMITER ;
 
 /* Procedure structure for procedure `spGetMarketPlace` */
 
-/*!50003 DROP PROCEDURE IF EXISTS  `spGetMarketPlace` */;
-
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`nstw`@`%` PROCEDURE `spGetMarketPlace`(
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spGetMarketPlace`(
 itype varchar(100))
     READS SQL DATA
 BEGIN
