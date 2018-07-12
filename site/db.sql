@@ -25,17 +25,21 @@ CREATE TABLE `tbl_register` (
   `organization` varchar(50) DEFAULT NULL,
   `event` varchar(50) DEFAULT NULL,
   `marketplace` varchar(50) DEFAULT NULL,
+  `agebracket` tinyint(1) DEFAULT NULL,
   `transaction` tinyint(1) DEFAULT NULL,
   `pricing` tinyint(1) DEFAULT NULL,
   `relationship` tinyint(1) DEFAULT NULL,
   `overall` tinyint(1) DEFAULT NULL,
   `thumbs` tinyint(1) DEFAULT NULL,
+  `haveAttend` tinyint(1) DEFAULT NULL,
+  `havePurchase` tinyint(1) DEFAULT NULL,
+  `reactions` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`register_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 
 /*Data for the table `tbl_register` */
 
-insert  into `tbl_register`(`register_id`,`full_name`,`gender`,`organization`,`event`,`marketplace`,`transaction`,`pricing`,`relationship`,`overall`,`thumbs`) values (66,'Larry','Male','3','2,3,1','1,4,7,2',4,4,4,4,1),(67,'gfgdg','Female','3','2,1','6,4',4,4,4,4,1),(68,'test','Female','3','4,1','7,4,2',4,4,4,4,1),(69,'','Female','4','1,3,5','6,7,2',4,4,4,4,1),(70,'','Female','4','5,1,2','6,1,4',4,4,3,4,1),(71,'','Female','4','5,1,2','6,1,4',4,4,3,4,1),(72,'','Female','4','5,1,2','6,1,4',4,4,3,4,1),(73,'','Female','4','5,1,2','6,1,4',4,4,3,4,1),(74,'','Female','4','1,3,5','6,7,2',4,4,4,4,1);
+insert  into `tbl_register`(`register_id`,`full_name`,`gender`,`organization`,`event`,`marketplace`,`agebracket`,`transaction`,`pricing`,`relationship`,`overall`,`thumbs`,`haveAttend`,`havePurchase`,`reactions`) values (66,'Larry','Male','3','2,3,1','1,4,7,2',0,4,4,4,4,1,0,0,NULL),(67,'gfgdg','Female','3','2,1','6,4',0,4,4,4,4,1,0,0,NULL),(68,'test','Female','3','4,1','7,4,2',0,4,4,4,4,1,0,0,NULL),(69,'','Female','4','1,3,5','6,7,2',0,4,4,4,4,1,0,0,NULL),(70,'','Female','4','5,1,2','6,1,4',0,4,4,3,4,1,0,0,NULL),(71,'','Female','4','5,1,2','6,1,4',0,4,4,3,4,1,0,0,NULL),(72,'','Female','4','5,1,2','6,1,4',0,4,4,3,4,1,0,0,NULL),(73,'','Female','4','5,1,2','6,1,4',0,4,4,3,4,1,0,0,NULL),(74,'','Female','4','1,3,5','6,7,2',0,4,4,4,4,1,0,0,NULL),(75,'Larry','Male','5','3,4','4,5',NULL,5,0,5,5,1,NULL,NULL,NULL),(76,'Larry','Male','5','5','5',NULL,5,0,5,5,1,NULL,NULL,NULL),(77,'Larry','Male','5','','5,4',NULL,0,0,0,5,1,NULL,NULL,NULL),(78,'Larry','Male','5','4,5','2,7,1',NULL,0,0,0,5,1,NULL,NULL,NULL),(79,'dsgsgsg','Male','5','4,5','3,2,6',NULL,0,0,0,5,1,NULL,NULL,NULL),(80,'xzafafa','Male','5','1,7,3','4',NULL,0,0,0,5,1,NULL,NULL,NULL),(81,'fdfafaf','Male','5','4,5','5,4',NULL,5,5,5,4,1,NULL,NULL,NULL),(82,'test','Male','5','3,4,7','2,1,7,4',2,5,5,5,5,1,1,1,'sfsff');
 
 /* Function  structure for function  `fnCountElements` */
 

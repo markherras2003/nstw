@@ -1,3 +1,5 @@
+var mainurl = 'http://localhost/nstw/nstw/';
+
 function doOnCurrentPageChanged(survey) {
     document
         .getElementById('surveyPrev')
@@ -185,12 +187,44 @@ var json = {
 
 
 
+               
+
+
+                {
+                    "type": "imagepicker",
+                    "name": "lastevent",
+                    "isRequired": true,
+                    "visibleIf": "{haveAttend} = 'No'",
+                    "colCount": 5,
+                    "title": "How was your experience of the last event? (NSTW 2017)",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],         
+                },
+
+
                 {
                     
                     "type": "imagepicker",
                     "name": "event",
                     "title": "How did you know about the NSTW 2018?",
-                    "visibleIf": "{haveAttend} = 'Yes'",
+                    "visibleIf": "{haveAttend} = 'Yes'or {haveAttend}='No",
                     "multiSelect": true,
                     "isRequired": true,
                     "colCount": 5,
@@ -220,35 +254,6 @@ var json = {
                         
                     ],       
 
-                },
-
-
-                {
-                    "type": "imagepicker",
-                    "name": "lastevent",
-                    "isRequired": true,
-                    "visibleIf": "{haveAttend} = 'No'",
-                    "colCount": 5,
-                    "title": "How was your experience of the last event? (NSTW 2017)",
-                    "choices": [
-                        {
-                            "value": "1",
-                            "imageLink": "images/rate-1.png"
-                        }, {
-                            "value": "2",
-                            "imageLink": "images/rate-2.png"
-                        }, {
-                            "value": "3",
-                            "imageLink": "images/rate-2-1.png"
-                        }, {
-                            "value": "4",
-                            "imageLink": "images/rate-3.png"
-                        }, {
-                            "value": "5",
-                            "imageLink": "images/rate-4.png"
-                        },
-                        
-                    ],         
                 },
 
 
@@ -445,7 +450,7 @@ var json = {
 
                 {
                     "type": "checkbox",
-                    "name": "pricing",
+                    "name": "insights",
                     "isRequired": true,
                     "colCount": 1,
                     "title": "Your insights about the Marketplace",
@@ -501,7 +506,7 @@ survey.onComplete.add(function(result) {
     var datas = localStorage["mdata"];
     $.ajax({
         type: "POST",
-        url: "http://localhost/nstw/insert_record.php",
+        url: "http://localhost/nstw/nstw/insert_record.php",
         data: { jsondata: datas },
         
         dataType: "text",
@@ -511,9 +516,9 @@ survey.onComplete.add(function(result) {
             //$("#insert").val('Connecting...');
         },
         success: function (data) {
-            //alert(data);
+            alert(data);
             setTimeout(() => {
-                //window.location.href  = 'index.html';
+                window.location.href  = 'index.html';
             }, 5000);
         }
     });
