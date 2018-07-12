@@ -61,19 +61,12 @@ var myCss = {
 
 var json = {
     //showProgressBar: "top",
-    goNextPageAutomatic: true,
+    goNextPageAutomatic: false,
     showNavigationButtons: false,
     pages: [
     
         {
             questions: [
-            
-                {
-                    type: "html",
-                    name: "info",
-                    html: "<div id='firstpage' class='testing'></div>"
-                },      
-            
                 
                 {
                     type: "text", name: "name", title: "Name (Optional) :", isRequired: false, "colCount": 2,
@@ -107,14 +100,7 @@ var json = {
         {
             questions: [
       
-
-                {
-                    type: "html",
-                    name: "info",
-                    html: "<div id='secondpage' class='testing2'></div>"
-                },
-
-
+            
                 {
                     "type": "imagepicker",
                     "name": "agebracket",
@@ -151,12 +137,6 @@ var json = {
   {
             questions: [
       
-
-                {
-                    type: "html",
-                    name: "info",
-                    html: "<div id='thirdpage' class='testing'></div>"
-                },
 
 
                 {
@@ -197,13 +177,6 @@ var json = {
         {
             questions: [
       
-
-                {
-                    type: "html",
-                    name: "info",
-                    html: "<div id='fourthpage' class='testing2'></div>"
-                },
-
 
                 {
                     type: "radiogroup",
@@ -290,15 +263,6 @@ var json = {
       
         {
             questions: [
-      
-
-                {
-                    type: "html",
-                    name: "info",
-                    html: "'<div class='clear:both;'></div><div id='fifthpage' class='testing2'></div>",
-                },
-
-            
             
                 {
                     
@@ -346,6 +310,7 @@ var json = {
                     "visibleIf": "{haveAttend} = 'Yes'",
                     "isRequired": true,
                     "colCount": 4,
+                    "multiSelect": true,
                     "choices": [
                         {
                             "value": "1",
@@ -381,13 +346,7 @@ var json = {
         {
             questions: [
       
-
-                {
-                    type: "html",
-                    name: "info",
-                    html: "'<div class='clear:both;'><div id='sixthpage' class='testing3'></div>",
-                },
-
+            
                 {
                     "type": "imagepicker",
                     "name": "marketplace",
@@ -478,20 +437,61 @@ survey.onComplete.add(function(result) {
 $("#surveyElement").Survey({ model: survey});
 
 
-
-//doOnCurrentPageChanged(survey);
-
-//, onCurrentPageChanged: doOnCurrentPageChanged
-//$("#surveyElement2").Survey({ model: survey.currentPageNo = 1});
-/*
-$('body').on('click', '.next-btn', function() {
-    $('.question-container').removeClass('slideInFromLeft');
-    $('.question-container').addClass('slideInFromRight');
-    console.log("You clicked NEXT");
-  });
-  $('body').on('click', '.prev-btn', function() {
-    $('.question-container').addClass('slideInFromLeft');
-    $('.question-container').removeClass('slideInFromRight');
-    console.log("You clicked PREVIOUS");
+$('body').on('click', '#surveyNext', function () {
+    $('.wrapper').hide(0);
+    $('#surveyElement').hide();
+    $('.wrapper').removeClass('bg0');
+    $('.wrapper').removeClass('bg1');
+    $('.wrapper').removeClass('bg2');
+    $('.wrapper').removeClass('bg3');
+    $('.wrapper').removeClass('bg4');
+    $('.wrapper').removeClass('bg5');
+    $('.wrapper').removeClass('bg6');
+    $('.wrapper').removeClass('bg7');
+    $('.wrapper').removeClass('bg8');
+    $('.wrapper').removeClass('bg9');   
+    var nums = Math.floor(Math.random() * 9);
+    $('.wrapper').addClass('bg'+nums);
+    $(".wrapper").animate({ width: 'toggle' }, 500);
+    $('#surveyElement').show(500);
 });
-*/
+$('body').on('click', '#surveyPrev', function () {
+    $('.wrapper').hide(0);
+    $('#surveyElement').hide();
+    $('.wrapper').removeClass('bg0');
+    $('.wrapper').removeClass('bg1');
+    $('.wrapper').removeClass('bg2');
+    $('.wrapper').removeClass('bg3');
+    $('.wrapper').removeClass('bg4');
+    $('.wrapper').removeClass('bg5');
+    $('.wrapper').removeClass('bg6');
+    $('.wrapper').removeClass('bg7');
+    $('.wrapper').removeClass('bg8');
+    $('.wrapper').removeClass('bg9');   
+    var nums = Math.floor(Math.random() * 9);
+    $('.wrapper').addClass('bg'+nums);
+    $(".wrapper").animate({ width: 'toggle' },500);
+    $('#surveyElement').show(500);
+});
+
+    
+$(function(){
+    // Bind the swipeleftHandler callback function to the swipe event on div.box
+    $( ".wrapper" ).on( "swipeleft", swipeleftHandler );
+   
+    // Callback function references the event target and adds the 'swipeleft' class to it
+    function swipeleftHandler( event ){
+        //$(event.target).addClass("swipeleft");
+
+        $("#surveyNext").click();
+    }
+
+     // Bind the swipeleftHandler callback function to the swipe event on div.box
+     $( ".wrapper" ).on( "swiperight", swiperightHandler );
+   
+     // Callback function references the event target and adds the 'swipeleft' class to it
+     function swiperightHandler( event ){
+         //$(event.target).addClass("swipeleft");
+         $("#surveyPrev").click();
+     }
+  });

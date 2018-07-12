@@ -1,11 +1,11 @@
 /* The device with borders */
 .tablet.upper {
-  z-index: 99999; margin-top: -375px;
+  z-index: 99999; margin-top: -175px;
 }
 
 .tablet {
     position: relative;
-    width: 75%;;
+    width: 90%;;
     height: 100%;
     margin: auto;
     border: 16px black solid;
