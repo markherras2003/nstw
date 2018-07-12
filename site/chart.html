@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOST Registration Survey</title>
+    <meta http-equiv="refresh" content="25"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/survey.jquery.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+    <script src="js/export-data.js"></script>  
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div class="wrapper">
+        <div class="refresh-overlay">
+            <div class="refresh-img"><img src="images/loading.gif" height="75" width="75" alt=""></div>
+        </div>
+    <div class="logo-container">
+        <img src="images/logo.png" height="48" width="48"> <span class="logo-title">Department of Science And Technology</span>
+    </div>
+
+
+    
+        <div style="margin-top: 50px"></div>
+
+        <div style="text-align: center;">Chart Refresh in <span id="time">25</span> seconds! </div>
+        <div style="text-align: center;padding-bottom: 25px;">Update as of : <span id="dates"></span></div>
+
+        <div class="chart-container" id="#content_div_id">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div id="genderChart" class="chart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+                <div class="col-lg-3">
+                    <div id="organizationChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+                <div class="col-lg-3">
+                    <div id="eventChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+                <div class="col-lg-3">
+                    <div id="marketplaceChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="transactionChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="pricingChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+           
+            </div>
+    
+            <div class="row">
+                <div class="col-lg-6">
+                    <div id="relationshipChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="overallChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    
+
+ 
+
+</div>
+
+<script type="text/javascript" src="js/chart.js"></script>
+</body>
+</html>

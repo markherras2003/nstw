@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOST Registration Survey</title>
+    <meta http-equiv="refresh" content="120"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/survey.jquery.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+    <script src="js/export-data.js"></script>  
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div class="wrapper">
+        <div class="refresh-overlay">
+            <div class="refresh-img"><img src="images/loading.gif" height="75" width="75" alt=""></div>
+        </div>
+    <div class="logo-container">
+        <img src="images/logo.png" height="48" width="48"> <span class="logo-title">Department of Science And Technology</span>
+    </div>
+
+
+    
+        <div style="margin-top: 50px"></div>
+
+        <div style="text-align: center;">Chart Refresh in <span id="time">2</span></div>
+        <div style="text-align: center;padding-bottom: 25px;">Update as of : <span id="dates"></span></div>
+
+        <div class="chart-container" id="#content_div_id">
+            <div class="row">
+                <div class="col-lg-12">
+                        <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#gender">Gender Chart</a></li>
+                                <li><a data-toggle="tab" href="#org">Organization Chart</a></li>
+                                <li><a data-toggle="tab" href="#event">Event Chart</a></li>
+                                <li><a data-toggle="tab" href="#marketplace">Marketplace Chart</a></li>
+                                <li><a data-toggle="tab" href="#transaction">Transaction Chart</a></li>
+                                <li><a data-toggle="tab" href="#pricing">Pricing Chart</a></li>
+                                <li><a data-toggle="tab" href="#relationship">Relationship Chart</a></li>
+                                <li><a data-toggle="tab" href="#overall">Overall Chart</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                                <div id="gender" class="tab-pane fade in active">
+                                    <div id="genderChart" style="min-width: 310px; max-height: 960px; height: 760px;  margin: 0 auto"></div>
+                                </div>
+                                <div id="org" class="tab-pane fade">
+                                    <div id="organizationChart" style="min-width: 310px; max-height: 960px; height: 760px; margin: 0 auto"></div>
+                                </div>
+                                <div id="event" class="tab-pane fade">
+                                    <div id="eventChart" style="min-width: 310px; max-height: 960px; height: 760px;  margin: 0 auto"></div>
+                                </div>
+                                <div id="marketplace" class="tab-pane fade">
+                                        <div id="marketplaceChart" style="min-width: 310px; max-height: 960px; height: 760px;  margin: 0 auto"></div>
+                                </div>
+                                <div id="transaction" class="tab-pane fade">
+                                        <div id="transactionChart" style="min-width: 310px; max-height: 960px; height: 760px;  margin: 0 auto"></div>
+                                </div>
+                                <div id="pricing" class="tab-pane fade">
+                                        <div id="pricingChart" style="min-width: 310px; max-height: 960px; height: 760px;  margin: 0 auto"></div>
+                                </div>
+                                <div id="relationship" class="tab-pane fade">
+                                        <div id="relationshipChart" style="min-width: 310px; max-height: 960px; height: 760px;  margin: 0 auto"></div>
+                                </div>
+                                <div id="overall" class="tab-pane fade">
+                                        <div id="overallChart" style="min-width: 310px; max-height: 960px; height: 760px;  margin: 0 auto"></div>
+                                </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+</div>
+
+<script type="text/javascript" src="js/chart.js"></script>
+</body>
+</html>

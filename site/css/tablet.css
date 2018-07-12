@@ -1,0 +1,79 @@
+/* The device with borders */
+.tablet.upper {
+  z-index: 99999; margin-top: -375px;
+}
+
+.tablet {
+    position: relative;
+    width: 75%;;
+    height: 100%;
+    margin: auto;
+    border: 16px black solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+    opacity: 1;
+  }
+  
+  /* The horizontal line on the top of the device */
+  
+  .tablet:before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 10px;
+  }
+
+  #firstpage img::after {
+        background-image: linear-gradient(to right top, #5b712b, #997629, #d5734e, #fe7391, #ff8be6);
+  }
+
+
+
+  
+  /* The circle on the bottom of the device */
+
+  .tablet:after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 50%;
+    bottom: -65px;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 50%;
+  }
+  
+  /* The screen (or content) of the device */
+  .tablet .content {
+    width: 100%;
+    height:775px;
+    max-height: 1200px;
+    background: white;
+    margin: -1px;
+  }
+
+  #mcontent {
+    display: none;
+  }
+
+  #mcontent.visible {
+    display: block;
+  }
+
+  #mimage.invisible {
+    display: none;
+  }
+
+  a#surveyNext {
+    display: none!important;
+  }
+
