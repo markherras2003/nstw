@@ -178,6 +178,8 @@ var json = {
             questions: [
       
 
+
+            
                 {
                     type: "radiogroup",
                     name: "haveAttend",
@@ -189,32 +191,6 @@ var json = {
                     colCount: 0
                 },
 
-                {
-                    "type": "imagepicker",
-                    "name": "lastevent",
-                    "isRequired": true,
-                    "visibleIf": "{haveAttend} = 'No'",
-                    "title": "How was your experience of the last event? (NSTW 2017)",
-                    "choices": [
-                        {
-                            "value": "1",
-                            "imageLink": "images/rate-1.png"
-                        }, {
-                            "value": "2",
-                            "imageLink": "images/rate-2.png"
-                        }, {
-                            "value": "3",
-                            "imageLink": "images/rate-2-1.png"
-                        }, {
-                            "value": "4",
-                            "imageLink": "images/rate-3.png"
-                        }, {
-                            "value": "5",
-                            "imageLink": "images/rate-4.png"
-                        },
-                        
-                    ],         
-                },
 
 
                 {
@@ -224,9 +200,9 @@ var json = {
                     "title": "How did you know about the NSTW 2018?",
                     //"visibleIf": "{haveAttend} = 'No' or {haveAttend} = 'Yes'",
                     "visibleIf": "{haveAttend} = 'Yes'",
+                    "multiSelect": true,
                     "isRequired": true,
                     "colCount": 5,
-                    "multiSelect": true,
                     "choices": [
                         {
                             "value": "1",
@@ -256,6 +232,34 @@ var json = {
                 },
 
 
+                {
+                    "type": "imagepicker",
+                    "name": "lastevent",
+                    "isRequired": true,
+                    "visibleIf": "{haveAttend} = 'No'",
+                    "title": "How was your experience of the last event? (NSTW 2017)",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],         
+                },
+
+
 
             ]
         },
@@ -267,7 +271,7 @@ var json = {
                 {
                     
                     "type": "imagepicker",
-                    "name": "event",
+                    "name": "event2",
                     "title": "How did you know about the NSTW 2018?",
                     //"visibleIf": "{haveAttend} = 'No' or {haveAttend} = 'Yes'",
                     "visibleIf": "{haveAttend} = 'No'",
@@ -337,6 +341,8 @@ var json = {
                         
                     ],  
                 },
+
+                
             
 
             ]
@@ -349,11 +355,12 @@ var json = {
             
                 {
                     "type": "imagepicker",
-                    "name": "marketplace",
+                    "name": "marketplace2",
                     "title": "How did you know about the Marketplace?",
                     "visibleIf": "{haveAttend} = 'No'",
                     "isRequired": true,
                     "colCount": 4,
+                    "multiSelect": true,
                     "choices": [
                         {
                             "value": "1",
@@ -394,14 +401,290 @@ var json = {
                     colCount: 0
                 },
 
-            
-
-              
+           
 
             ]
+
+
         },
   
+
+        {
+            questions: [
+            
+                {
+                    type: "radiogroup",
+                    name: "havePurchased",
+                    title: "Have you purchased anything from Marketplace?",
+                    "visibleIf": "{haveAttend} = 'No'",
+                    isRequired: true,
+                    choices: [
+                        "Yes", "No" 
+                    ],
+                    colCount: 0
+                },
+            
+                {
+                    "type": "imagepicker",
+                    "name": "transaction",
+                    "isRequired": true,
+                    "visibleIf": "{havePurchased} = 'Yes'",
+                     "colCount": 4,
+                    //"multiSelect": true,
+                    "title": "How satisfied are you with our modes of transaction? (vending machine, over-the-counter)",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],        
+                },
+
+
+
+                {
+                    "type": "imagepicker",
+                    "name": "overall",
+                    "isRequired": true,
+                    "visibleIf": "{havePurchased} = 'No'",
+                     "colCount": 4,
+                    "title": "How will you rate your overall experience in the marketplace?",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],        
+                },
+    
+            ]
+
+
+        },
+
+
+
+
+
+        {
+            questions: [
+            
+                {
+                    "type": "imagepicker",
+                    "name": "thumbs",
+                    "isRequired": true,
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    "title": "How likely will you recommend D` STore to your family and friends?",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/thumb-up.ico"
+                        }, {
+                            "value": "0",
+                            "imageLink": "images/thumb-down.ico"
+                        },
+                    ]
+                } ,
+            
+                {
+                    "type": "imagepicker",
+                    "name": "pricing",
+                    "isRequired": true,
+                    "title": "How satisfied are you with the price vis-a-vis the product",
+                    "visibleIf": "{havePurchased} = 'Yes'",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],                  
+                },
+    
+
+            ]
+
+
+        },
+
+
+        {
+            questions: [
+            
+            
+                {
+                    "type": "imagepicker",
+                    "name": "reaction",
+                    "isRequired": true,
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    "title": "Reactions Test?",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/thumb-up.ico"
+                        }, {
+                            "value": "0",
+                            "imageLink": "images/thumb-down.ico"
+                        },
+                    ]
+                } ,
+            
+                {
+                    "type": "imagepicker",
+                    "name": "relationship",
+                    "isRequired": true,
+                    "title": "How satisfied are you with the level of customer service we provide?",
+                    "visibleIf": "{havePurchased} = 'Yes'",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],         
+                },
+    
+
+            ]
+
+
+        },
+
+
+
+        {
+            questions: [
+            
+            
+                {
+                    "type": "imagepicker",
+                    "name": "reaction2",
+                    "isRequired": true,
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    "title": "Reactions Test 2?",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/thumb-up.ico"
+                        }, {
+                            "value": "0",
+                            "imageLink": "images/thumb-down.ico"
+                        },
+                    ]
+                } ,
+            
+                {
+                    "type": "imagepicker",
+                    "name": "relationship2",
+                    "isRequired": true,
+                    "title": "How satisfied are you with the level of customer service we provide?",
+                    "visibleIf": "{havePurchased} = 'Yes'",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],         
+                },
+    
+
+            ]
+
+
+        },
   
+
+        {
+            questions: [
+            
+            
+                {
+                    "type": "imagepicker",
+                    "name": "reaction3",
+                    "title": "Reactions Test3?",
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/thumb-up.ico"
+                        }, {
+                            "value": "0",
+                            "imageLink": "images/thumb-down.ico"
+                        },
+                    ]
+                } ,
+    
+
+            ]
+
+
+        },
+  
+
+
     
     ]
 };
@@ -409,10 +692,10 @@ var json = {
 window.survey = new Survey.Model(json);
 
 survey.onComplete.add(function(result) {
-    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
+    //document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
    // document.querySelector('#surveyResult2').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
-    //localStorage["mdata"] =  JSON.stringify(result.data);
-    //document.querySelector('#surveyResult').innerHTML = localStorage["mdata"]; 
+    localStorage["mdata"] =  JSON.stringify(result.data);
+    document.querySelector('#surveyResult').innerHTML = localStorage["mdata"]; 
     var datas = localStorage["mdata"];
     $.ajax({
         type: "POST",
@@ -426,7 +709,7 @@ survey.onComplete.add(function(result) {
             //$("#insert").val('Connecting...');
         },
         success: function (data) {
-            alert(data);
+            //alert(data);
             setTimeout(() => {
                 //window.location.href  = 'index.html';
             }, 5000);

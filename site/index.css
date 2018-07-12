@@ -1,8 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     color: black;
-    overflow-x: hidden;
-    overflow-y:hidden;
+
     width: 100%; 
     background:linear-gradient(rgba(233, 252, 25, 0.75),rgba(253, 47, 47, 0.75)),url(images/sm-bg1.png);
     background-size: cover;
@@ -11,73 +10,83 @@ body {
 
 .wrapper.bg0 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(16, 181, 223, 0.418),rgba(230, 51, 185, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(16, 181, 223, 0.418),rgba(230, 51, 185, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 .wrapper.bg1 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(196, 90, 29, 0.75),rgba(161, 34, 34, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(196, 90, 29, 0.75),rgba(161, 34, 34, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 .wrapper.bg2 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(134, 7, 192, 0.75),rgba(179, 28, 166, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(134, 7, 192, 0.75),rgba(179, 28, 166, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 .wrapper.bg3 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(7, 209, 84, 0.75),rgba(80, 58, 202, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(7, 209, 84, 0.75),rgba(80, 58, 202, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 .wrapper.bg4 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(64, 62, 184, 0.75),rgba(35, 192, 179, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(64, 62, 184, 0.75),rgba(35, 192, 179, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 
 .wrapper.bg5 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(228, 243, 10, 0.75),rgba(146, 60, 26, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(228, 243, 10, 0.75),rgba(146, 60, 26, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 .wrapper.bg6 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(66, 60, 155, 0.75),rgba(80, 58, 202, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(66, 60, 155, 0.75),rgba(80, 58, 202, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 .wrapper.bg7 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(192, 10, 19, 0.75),rgba(66, 211, 85, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(192, 10, 19, 0.75),rgba(66, 211, 85, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 .wrapper.bg8 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(215, 218, 47, 0.75),rgba(167, 29, 137, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(215, 218, 47, 0.75),rgba(167, 29, 137, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 
 .wrapper.bg9 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    background:linear-gradient(rgba(243, 223, 44, 0.75),rgba(0, 255, 221, 0.75)),url(images/sm-bg1.png);
+    background:linear-gradient(rgba(243, 223, 44, 0.75),rgba(0, 255, 221, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover;
-    height: 800px!important;
+    height: 960px!important;
+    background-attachment: unset!important;
 }
 
 .my-rating {
@@ -92,7 +101,7 @@ body {
     background-color: transparent;
     background:linear-gradient(rgba(134, 7, 192, 0.75),rgba(179, 28, 166, 0.75)),url(images/sm-bg1.png)!important;
     background-size: cover!important;
-    height: 800px!important;
+    height: 960px!important;
     color: #212121;
     font-size: 24px;
 }
