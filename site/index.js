@@ -27,7 +27,6 @@ function doOnCurrentPageChanged(survey) {
         document
             .getElementById('surveyPageNo')
             .value = survey.currentPageNo;
-            alert(survey.currentPageNo);
     }
 
 
@@ -506,10 +505,10 @@ var json = {
 window.survey = new Survey.Model(json);
 
 survey.onComplete.add(function(result) {
-    //document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
-   // document.querySelector('#surveyResult2').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
+    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
+   //document.querySelector('#surveyResult2').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
     localStorage["mdata"] =  JSON.stringify(result.data);
-    document.querySelector('#surveyResult').innerHTML = localStorage["mdata"]; 
+    //document.querySelector('#surveyResult').innerHTML = localStorage["mdata"]; 
     var datas = localStorage["mdata"];
     $.ajax({
         type: "POST",
@@ -523,7 +522,7 @@ survey.onComplete.add(function(result) {
             //$("#insert").val('Connecting...');
         },
         success: function (data) {
-            alert(data);
+            //alert(data);
             setTimeout(() => {
                 window.location.href  = 'index.html';
             }, 5000);
@@ -534,9 +533,11 @@ survey.onComplete.add(function(result) {
 $("#surveyElement").Survey({ model: survey, onCurrentPageChanged: doOnCurrentPageChanged});
 
 //
-
+  
+doOnCurrentPageChanged(survey);
 
 $('body').on('click', '#surveyNext', function () {
+    //var y = document.getElementById('surveyPageNo').value;
     $('.wrapper').hide(0);
     $('#surveyElement').hide();
     $('.wrapper').removeClass('bg0');
@@ -596,5 +597,3 @@ $(function(){
      }
   });
 
-  
-  doOnCurrentPageChanged(survey);
