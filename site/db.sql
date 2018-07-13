@@ -18,6 +18,7 @@ USE `nstw`;
 
 /*Table structure for table `tbl_register` */
 
+
 CREATE TABLE `tbl_register` (
   `register_id` int(11) NOT NULL AUTO_INCREMENT,
   `full_name` varchar(255) DEFAULT NULL,

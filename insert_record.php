@@ -36,6 +36,17 @@ foreach($marketplace as $marketplaces) {
   }
   $y++;
 }
+$bb="";
+$h=1;
+foreach($insights as $insight) {
+  $cnts = sizeOf($insights);
+  if($h==$cnts) {
+    $bb = $bb.$insight;
+  }else{
+    $bb = $bb.$insight.",";
+  }
+  $h++;
+}
 $overall = $dataArray["overall"];
 $thumbs = $dataArray["thumbs"];
 
@@ -58,7 +69,7 @@ if($havePurchased=='No') {
   $pricing = $dataArray["pricing"];
   $relationship = $dataArray["relationship"];
 }
-$insert = "INSERT INTO `tbl_register`(`full_name`,`gender`,`organization`,`event`,`marketplace`,`transaction`,`pricing`,`relationship`,`overall`,`agebracket`,`reactions`,`haveAttend`,`havePurchase`,`thumbs`)";
+$insert = "INSERT INTO `tbl_register`(`full_name`,`gender`,`organization`,`event`,`marketplace`,`transaction`,`pricing`,`relationship`,`overall`,`agebracket`,`reactions`,`haveAttend`,`havePurchase`,`insights`,`thumbs`)";
 $insert = $insert." VALUES('".$name."',";
 $insert = $insert."'".$gender."',";
 $insert = $insert."'".$organization."',";
@@ -72,6 +83,7 @@ $insert = $insert."'".$agebracket."',";
 $insert = $insert."'".$reactions."',";
 $insert = $insert."'".$haveAttend."',";
 $insert = $insert."'".$havePurchased."',";
+$insert = $insert."'".$bb."',";
 $insert = $insert."'".$thumbs."')";
 $q=mysqli_query($con,$insert);
 

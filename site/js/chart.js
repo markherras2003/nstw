@@ -1,4 +1,4 @@
-var mainurl = 'http://localhost/nstw/nstw/';
+var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
 $(".refresh-overlay").addClass('visible');
 
 
@@ -78,6 +78,7 @@ $(".refresh-overlay").addClass('visible');
                 localStorage["govtagency"] = field.govtagency;
                 localStorage["industry"] = field.industry;
                 localStorage["peoplesorg"] = field.peoplesorg;
+                localStorage["individual"] = field.individual;
 				});
             Highcharts.chart('organizationChart', {
                 chart: {
@@ -122,6 +123,10 @@ $(".refresh-overlay").addClass('visible');
                     },{
                         name: 'People`s Organization',
                         y: parseFloat(localStorage["peoplesorg"]),
+                        color: '#c0392b',
+                    },{
+                        name: 'Individual',
+                        y: parseFloat(localStorage["individual"]),
                         color: '#c0392b',
                     }
                 ]
@@ -320,6 +325,7 @@ $.ajax({
             	$.each(data, function(i, field) {
                 localStorage["notsatisfied"] = field.notsatisfied;
                 localStorage["somewhatsatisfied"] = field.somewhatsatisfied;
+                localStorage["neutral"] = field.neutral;
                 localStorage["satisfied"] = field.satisfied;
                 localStorage["verysatisfied"] = field.verysatisfied;
                 localStorage["respondents"] = field.respondents;
@@ -360,6 +366,10 @@ $.ajax({
                         name: 'Somewhat Satisfied',
                         y: parseInt(localStorage["somewhatsatisfied"]),
                         color: '#f1c40f',
+                        }, {
+                        name: 'Neutral',
+                        y: parseInt(localStorage["neutral"]),
+                        color: '#f1c40f',
                         },{
                         name: 'Satisfied',
                         y: parseInt(localStorage["satisfied"]),
@@ -390,6 +400,7 @@ $.ajax({
             	$.each(data, function(i, field) {
                 localStorage["notsatisfied"] = field.notsatisfied;
                 localStorage["somewhatsatisfied"] = field.somewhatsatisfied;
+                localStorage["neutral"] = field.neutral;
                 localStorage["satisfied"] = field.satisfied;
                 localStorage["verysatisfied"] = field.verysatisfied;
                 localStorage["respondents"] = field.respondents;
@@ -431,6 +442,10 @@ $.ajax({
                         name: 'Somewhat Satisfied',
                         y: parseInt(localStorage["somewhatsatisfied"]),
                         color: '#f1c40f',
+                        }, {
+                        name: 'Satisfied',
+                        y: parseInt(localStorage["neutral"]),
+                        color: '#8e44ad',
                         },{
                         name: 'Satisfied',
                         y: parseInt(localStorage["satisfied"]),
@@ -461,6 +476,7 @@ $.ajax({
             	$.each(data, function(i, field) {
                 localStorage["notsatisfied"] = field.notsatisfied;
                 localStorage["somewhatsatisfied"] = field.somewhatsatisfied;
+                localStorage["neutral"] = field.neutral;
                 localStorage["satisfied"] = field.satisfied;
                 localStorage["verysatisfied"] = field.verysatisfied;
                 localStorage["respondents"] = field.respondents;
@@ -503,6 +519,10 @@ $.ajax({
                         y: parseInt(localStorage["somewhatsatisfied"]),
                         color: '#f1c40f',
                         },{
+                        name: 'Neutral',
+                        y: parseInt(localStorage["neutral"]),
+                        color: '#f1c40f',
+                        },{
                         name: 'Satisfied',
                         y: parseInt(localStorage["satisfied"]),
                         color: '#8e44ad',
@@ -533,6 +553,7 @@ $.ajax({
                 localStorage["notsatisfied"] = field.notsatisfied;
                 localStorage["somewhatsatisfied"] = field.somewhatsatisfied;
                 localStorage["satisfied"] = field.satisfied;
+                localStorage["neutral"] = field.neutral;
                 localStorage["verysatisfied"] = field.verysatisfied;
                 localStorage["respondents"] = field.respondents;
 				});
@@ -572,6 +593,10 @@ $.ajax({
                         },{
                         name: 'Somewhat Satisfied',
                         y: parseInt(localStorage["somewhatsatisfied"]),
+                        color: '#f1c40f',
+                        },{
+                        name: 'Neutral',
+                        y: parseInt(localStorage["neutral"]),
                         color: '#f1c40f',
                         },{
                         name: 'Satisfied',

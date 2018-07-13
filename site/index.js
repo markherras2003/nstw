@@ -1,4 +1,4 @@
-var mainurl = 'http://localhost/nstw/nstw/';
+var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
 
 function doOnCurrentPageChanged(survey) {
     document
@@ -453,7 +453,7 @@ var json = {
                     "name": "insights",
                     "isRequired": true,
                     "colCount": 1,
-                    "title": "Your insights about the Marketplace",
+                    "title": "Your insights about the Marketplace :",
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
                     "choices": [
                         {
@@ -482,9 +482,16 @@ var json = {
                     name: "reactions",
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
                     title: "What would you like to suggest to improve our services?"
-                }
+                },
 
                 
+                {
+                    type: "html",
+                    name: "info",
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    html: "<a id='surveyComplete2' href='#' onclick='survey.completeLastPage();' class='ui-link' style='display: inline;'><img src='images/survey_button.png' alt=''></a>"
+
+                },
 
 
 
@@ -506,7 +513,7 @@ survey.onComplete.add(function(result) {
     var datas = localStorage["mdata"];
     $.ajax({
         type: "POST",
-        url: "http://localhost/nstw/nstw/insert_record.php",
+        url: mainurl + "insert_record.php",
         data: { jsondata: datas },
         
         dataType: "text",

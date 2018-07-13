@@ -9,7 +9,7 @@ $q=mysqli_query($con,"SELECT fngetGender('Male') AS malecount , fngetGender('Fem
 }
 if ($posting_type=="Organization") {
 $q=mysqli_query($con,"SELECT `fngetOrganization`(1) AS academe,`fngetOrganization`(2) AS govtagency ,
-`fngetOrganization`(3) AS industry, `fngetOrganization`(4) AS peoplesorg   FROM `tbl_register` LIMIT 1");
+`fngetOrganization`(3) AS industry, `fngetOrganization`(4) AS peoplesorg,`fngetOrganization`(5) AS individual   FROM `tbl_register` LIMIT 1");
 }
 if ($posting_type=="Event") {
 $q=mysqli_query($con,"CALL spGetDynamicChart('event')");
@@ -21,7 +21,7 @@ if ($posting_type=="Transaction") {
   $q=mysqli_query($con,"SELECT 
   FORMAT((fngetFeedback(1,'transaction')) / COUNT(*), 2) * 100 AS `notsatisfied`,
   FORMAT((fngetFeedback(2,'transaction')) / COUNT(*), 2) * 100 AS `somewhatsatisfied`,
-  FORMAT((fngetFeedback(3,'transaction')) / COUNT(*), 2) * 100 AS`neutral`,
+  FORMAT((fngetFeedback(3,'transaction')) / COUNT(*), 2) * 100 AS `neutral`,
   FORMAT((fngetFeedback(4,'transaction')) / COUNT(*), 2) * 100 AS`satisfied`,
   FORMAT((fngetFeedback(5,'transaction')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
