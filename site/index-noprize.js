@@ -613,25 +613,6 @@ var json = {
             ]
 
         },
-// FOR PRIZES
-        {
-            questions: [
-
-
-                {
-                    type: "text",
-                    name: "winwin",
-                    isRequired: true,
-                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
-                    title: "Please choose a number from [1-18] for a chance to win?",
-                    validators: [{type:"numeric", minValue: 1, maxValue: 18}],
-                },
-
-
-            ]
-
-        },
-
 
         {
             questions: [
@@ -654,7 +635,7 @@ var json = {
 window.survey = new Survey.Model(json);
 
 survey.onComplete.add(function (result) {
-
+    
     localStorage["mdata"] =  JSON.stringify(result.data);
     var datas = localStorage["mdata"];
     var obj = JSON.parse(datas);
@@ -672,17 +653,10 @@ survey.onComplete.add(function (result) {
         },
         success: function (data) {
             if (data == 'success') {
-                if (winwin == mywin) {
-                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;font-size:28px;'>You won a prize<br/>Redirecting in few seconds or Click <a href='index.html'>here</a></div>"; 
-                    setTimeout(() => {
-                        window.location.href  = 'index.html';
-                    }, 20000);
-                } else {
-                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in few seconds or Click <a href='index.html'>here</a></div>";  
+                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in few seconds</div>";  
                     setTimeout(() => {
                         window.location.href  = 'index.html';
                     }, 2500);
-                }
 
         }else{
             alert('Error Saving');
@@ -695,6 +669,11 @@ survey.data = {
     reactions: ' ',
 };
 $("#surveyElement").Survey({ model: survey, onCurrentPageChanged: doOnCurrentPageChanged});
+
+
+
+  
+
 
 $('body').on('click', '#surveyNext', function () {
     //var y = document.getElementById('surveyPageNo').value;
