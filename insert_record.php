@@ -3,15 +3,25 @@
 
 $jsons = $_POST["jsondata"];
 $dataArray = json_decode($jsons, true);
+$name='';
+$gender='';
+$agebracket='';
+$haveAttend='';
+$havePurchased='';
+$insights='';
+$organization='';
+$event = '';
+$reactions = '';
+
 $name = $dataArray["name"];
 $gender = $dataArray["gender"];
 $agebracket = $dataArray["agebracket"];
 $haveAttend = $dataArray["haveAttend"];
 $havePurchased = $dataArray["havePurchased"];
-$reactions = $dataArray["reactions"];
 $insights = $dataArray["insights"];
 $organization = $dataArray["organization"];
 $event = $dataArray["event"];
+$reactions = $dataArray["reactions"];
 $gg="";
 $x=1;
 foreach($event as $events) {
@@ -69,6 +79,7 @@ if($havePurchased=='No') {
   $pricing = $dataArray["pricing"];
   $relationship = $dataArray["relationship"];
 }
+
 $insert = "INSERT INTO `tbl_register`(`full_name`,`gender`,`organization`,`event`,`marketplace`,`transaction`,`pricing`,`relationship`,`overall`,`agebracket`,`reactions`,`haveAttend`,`havePurchase`,`insights`,`thumbs`)";
 $insert = $insert." VALUES('".$name."',";
 $insert = $insert."'".$gender."',";

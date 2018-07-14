@@ -1,4 +1,4 @@
-var mainurl = 'http://localhost/nstw/nstw/';
+var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
 
 function doOnCurrentPageChanged(survey) {
  
@@ -34,10 +34,10 @@ function doOnCurrentPageChanged(survey) {
 
 var f = survey.currentPageNo;
 //alert(f);
-    if (f==8) {
-        //alert(f);
-        //survey.completeLastPage();
-        // survey.currentPageNo = 2;
+    
+    var lpage = survey.isLastPage;
+    if (lpage == true) {
+        survey.completeLastPage();
     }    
 
     
@@ -86,7 +86,6 @@ var json = {
                     "name": "gender",
                     "isRequired": true,
                     "title": "I am a :",
-                    "colCount": 4,
                     "choices": [
                         {
                             "value": "Male",
@@ -185,7 +184,7 @@ var json = {
         {
             questions: [
       
-                {
+               /* {
                     type: "radiogroup",
                     name: "haveAttend",
                     title: "Is this your first time to attend the event (NSTW)?",
@@ -195,6 +194,26 @@ var json = {
                     ],
                     colCount: 0
                 },
+                */
+
+                {
+                    "type": "imagepicker",
+                    "name": "haveAttend",
+                    "isRequired": true,
+                    "title": "Is this your first time to attend the event (NSTW)?",
+                    "choices": [
+                        {
+                            "value": "Yes",
+                            "imageLink": "images/Yes.png"
+                        }, {
+                            "value": "No",
+                            "imageLink": "images/No.png"
+                        },
+                        
+                    ]
+                },
+
+
 
             ]
 
@@ -321,7 +340,7 @@ var json = {
 
         {
             questions: [
-
+/*
                 {
                     type: "radiogroup",
                     name: "havePurchased",
@@ -331,6 +350,24 @@ var json = {
                         "Yes", "No" 
                     ],
                     colCount: 0
+                },
+*/
+                {
+                    "type": "imagepicker",
+                    "name": "havePurchased",
+                    "isRequired": true,
+                    "colCount": 4,
+                    "title": "Is this your first time to attend the event (NSTW)?",
+                    "choices": [
+                        {
+                            "value": "Yes",
+                            "imageLink": "images/Yes.png"
+                        }, {
+                            "value": "No",
+                            "imageLink": "images/No.png"
+                        },
+                        
+                    ]
                 },
 
             ]
@@ -506,10 +543,10 @@ var json = {
                     "choices": [
                         {
                             "value": "1",
-                            "imageLink": "images/thumb-up.ico"
+                            "imageLink": "images/Like.png"
                         }, {
                             "value": "0",
-                            "imageLink": "images/thumb-down.ico"
+                            "imageLink": "images/Dislike.png"
                         },
                     ]
                 } ,
@@ -568,7 +605,26 @@ var json = {
                     type: "comment",
                     name: "reactions",
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
-                    title: "What would you like to suggest to improve our services?"
+                    title: "What would you like to suggest to improve our services?",
+                    value: "Type Suggestion here",
+                },
+
+
+            ]
+
+        },
+
+        {
+            questions: [
+
+
+                {
+                    type: "text",
+                    name: "winwin",
+                    isRequired: true,
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    title: "Please choose a number from [1-9] for a chance to win?",
+                    validators: [{type:"numeric", minValue: 1, maxValue: 9}],
                 },
 
 
@@ -597,11 +653,15 @@ var json = {
 
 window.survey = new Survey.Model(json);
 
-survey.onComplete.add(function(result) {
-    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in <span id='time'>5</span> seconds!</div>";
+survey.onComplete.add(function (result) {
+    //alert()
+   // var winwin = Math.floor(Math.random() * 3);
+    //alert(winwin);
+    
+    //document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in few seconds</div>";
    //document.querySelector('#surveyResult2').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in a few seconds!</div>";
     localStorage["mdata"] =  JSON.stringify(result.data);
-    document.querySelector('#surveyResult').innerHTML = localStorage["mdata"]; 
+    //document.querySelector('#surveyResult').innerHTML = localStorage["mdata"]; 
     var datas = localStorage["mdata"];
     $.ajax({
         type: "POST",
@@ -615,20 +675,30 @@ survey.onComplete.add(function(result) {
             //$("#insert").val('Connecting...');
         },
         success: function (data) {
-            if(data=='success') {
-            setTimeout(() => {
-                window.location.href  = 'index.html';
-            }, 2500);
+            if (data == 'success') {
+                if (winwin == 2) {
+                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>You won a prize<br/>Redirecting in few seconds</div>";  
+                } else {
+                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'>Redirecting in few seconds</div>";  
+                    setTimeout(() => {
+                        window.location.href  = 'index.html';
+                    }, 2500);
+                }
+
         }else{
             alert('Error Saving');
         }
         }
     });
 });
-
+survey.data = {
+    name: ' ',
+    reactions: ' ',
+};
 $("#surveyElement").Survey({ model: survey, onCurrentPageChanged: doOnCurrentPageChanged});
 
-//
+
+
   
 
 
