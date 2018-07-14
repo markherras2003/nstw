@@ -1,4 +1,4 @@
-var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
+var mainurl = 'localhost/nstw/nstw/';
 
 function doOnCurrentPageChanged(survey) {
     document
@@ -534,10 +534,11 @@ $("#surveyElement").Survey({ model: survey, onCurrentPageChanged: doOnCurrentPag
 
 //
   
-doOnCurrentPageChanged(survey);
+
 
 $('body').on('click', '#surveyNext', function () {
     //var y = document.getElementById('surveyPageNo').value;
+   // alert('tesrt');
     $('.wrapper').hide(0);
     $('#surveyElement').hide();
     $('.wrapper').removeClass('bg0');
@@ -571,7 +572,7 @@ $('body').on('click', '#surveyPrev', function () {
     var nums = Math.floor(Math.random() * 9);
     $('.wrapper').addClass('bg'+nums);
     $(".wrapper").animate({ width: 'toggle' },500);
-    $('#surveyElement').show(500);
+    //$('#surveyElement').show(500);
 });
 
     
@@ -596,4 +597,6 @@ $(function(){
             $("#surveyPrev").click();
      }
   });
+
+  doOnCurrentPageChanged(survey);
 

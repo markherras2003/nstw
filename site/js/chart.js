@@ -1,4 +1,4 @@
-var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
+var mainurl = 'http://localhost/nstw/nstw/';
 $(".refresh-overlay").addClass('visible');
 
 
