@@ -71,7 +71,9 @@ var json = {
     //showProgressBar: "top",
     goNextPageAutomatic: false,
     showNavigationButtons: false,
+
     pages: [
+    
     
         {
             questions: [
@@ -293,7 +295,15 @@ var json = {
                         
                     ],       
 
-                },
+            },
+            /*
+            {
+                type: "html",
+                name: "info",
+                html: "<div style='text-align:center;text-transform:uppercase;font-weight:200;font-size:2em;'>Multiple Selections Allowed</div>",
+            }
+            */
+        
             ]
         },
 
@@ -357,7 +367,7 @@ var json = {
                     "name": "havePurchased",
                     "isRequired": true,
                     "colCount": 4,
-                    "title": "Is this your first time to attend the event (NSTW)?",
+                    "title": "Have you purchased anything from Marketplace?",
                     "choices": [
                         {
                             "value": "Yes",
@@ -380,10 +390,10 @@ var json = {
                 {
                     "type": "imagepicker",
                     "name": "transaction",
-                    "isRequired": true,
                     "visibleIf": "{havePurchased} = 'Yes'",
                     "colCount": 5,
-                    "title": "How satisfied are you with our modes of transaction? (vending machine,over-the-counter)",
+                    "isRequired": true,
+                    "title": "How satisfied are you with our OneSTore Vendo machine mode of transaction? ",
                     "choices": [
                         {
                             "value": "1",
@@ -404,7 +414,56 @@ var json = {
                         
                     ],        
                 },
+/*
+                {
+                    type: "html",
+                    name: "info",
+                    html: "<div style='text-align:center;text-transform:uppercase;font-weight:200;font-size:2em;'>Skip if Not Applicable</div>",
+                }
+            */
             
+            ]
+
+        },
+
+        {
+            questions: [
+            
+                {
+                    "type": "imagepicker",
+                    "name": "transaction2",
+                    "visibleIf": "{havePurchased} = 'Yes'",
+                    "colCount": 5,
+                    "isRequired": true,
+                    "title": "How satisfied are you with our over-the-counter mode of transaction?",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/rate-1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/rate-2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/rate-2-1.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/rate-3.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/rate-4.png"
+                        },
+                        
+                    ],        
+                },
+/*
+                {
+                    type: "html",
+                    name: "info",
+                    html: "<div style='text-align:center;text-transform:uppercase;font-weight:200;font-size:2em;'>Skip if Not Applicable</div>",
+                }
+            
+         */   
             ]
 
         },
@@ -565,28 +624,29 @@ var json = {
                 
 
                 {
-                    "type": "checkbox",
+                    "type": "imagepicker",
                     "name": "insights",
                     "isRequired": true,
                     "colCount": 1,
                     "title": "Your insights about the Marketplace :",
+                    "multiSelect": true,
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
                     "choices": [
                         {
                             "value": "1",
-                            "text": "I am inspired to patronize more DOST assisted products"
+                            "imageLink": "images/c1.png"
                         }, {
                             "value": "2",
-                            "text": "I will highly recommend DOST assisted products to my family and friends"
+                            "imageLink": "images/c2.png"
                         }, {
                             "value": "3",
-                            "text": "My knowledge of DOST assisted products had widen"
+                            "imageLink": "images/c3.png"
                         }, {
                             "value": "4",
-                            "text": "i have seen most of these products in supermarkets & elsewhere"
+                            "imageLink": "images/c4.png"
                         }, {
                             "value": "5",
-                            "text": "I am not aware of most of there prodcts, only now"
+                            "imageLink": "images/c5.png"
                         },                    
                         
                     ],                  
@@ -652,7 +712,7 @@ var json = {
 };
 
 window.survey = new Survey.Model(json);
-
+survey.showQuestionNumbers = 'off';
 survey.onComplete.add(function (result) {
 
     localStorage["mdata"] =  JSON.stringify(result.data);
