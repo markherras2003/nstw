@@ -1,5 +1,5 @@
 //var mainurl = 'http://192.168.1.20/nstw-new/nstw/';
-var mainurl = 'http://192.168.1.20/marketplace-evaluation/';
+var mainurl = 'http://192.168.1.20/marketplace/';
 function doOnCurrentPageChanged(survey) {
  
 
