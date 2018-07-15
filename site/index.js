@@ -1,5 +1,5 @@
-var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
-
+//var mainurl = 'http://192.168.1.20/nstw-new/nstw/';
+var mainurl = 'http://192.168.1.20/marketplace-evaluation/';
 function doOnCurrentPageChanged(survey) {
  
 
@@ -34,7 +34,7 @@ function doOnCurrentPageChanged(survey) {
 
 var f = survey.currentPageNo;
 //alert(f);
-    
+    localStorage["curpage"] = survey.currentPageNo;
     var lpage = survey.isLastPage;
     if (lpage == true) {
         survey.completeLastPage();
@@ -137,7 +137,6 @@ var json = {
                         
                     ]
                 },
-
 
 
             ]
@@ -296,13 +295,14 @@ var json = {
                     ],       
 
             },
-            /*
+        
+        
             {
                 type: "html",
                 name: "info",
-                html: "<div style='text-align:center;text-transform:uppercase;font-weight:200;font-size:2em;'>Multiple Selections Allowed</div>",
-            }
-            */
+                "visibleIf": "{haveAttend} = 'Yes' or {haveAttend} = 'No'",
+                html: "<div style='text-align:center;text-transform:uppercase;font-weight:200;font-size:2em;'>Multiple Selection Allowed</div>",
+            },
         
             ]
         },
@@ -344,6 +344,13 @@ var json = {
                         
                     ],  
                 },
+
+                {
+                    type: "html",
+                    name: "info",
+                    "visibleIf": "{haveAttend} = 'Yes' or {haveAttend} = 'No'",
+                    html: "<div style='text-align:center;text-transform:uppercase;font-weight:200;font-size:2em;'>Multiple Selection Allowed</div>",
+                }
             ]
         },
 
@@ -410,10 +417,16 @@ var json = {
                         }, {
                             "value": "5",
                             "imageLink": "images/rate-4.png"
+                        },{
+                            "value": "6",
+                            "imageLink": "images/na.png"
                         },
                         
                     ],        
                 },
+
+        
+
 /*
                 {
                     type: "html",
@@ -452,6 +465,9 @@ var json = {
                         }, {
                             "value": "5",
                             "imageLink": "images/rate-4.png"
+                        },{
+                            "value": "6",
+                            "imageLink": "images/na.png"
                         },
                         
                     ],        
@@ -497,7 +513,6 @@ var json = {
                             "value": "5",
                             "imageLink": "images/rate-4.png"
                         },
-                        
                     ],                  
                 },
 
@@ -574,6 +589,7 @@ var json = {
                             "value": "5",
                             "imageLink": "images/rate-4.png"
                         },
+                        
                         
                     ],        
                 },
@@ -652,7 +668,15 @@ var json = {
                     ],                  
                 },
 
+                {
+                    type: "html",
+                    name: "info",
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    html: "<div style='position:absolute;top:5%;right:15%;font-size:28px;text-transform:uppercase;color:#ffffff;'>Multiple Selection Allowed</div>",
+                },
+
             ]
+            
 
         },
 
@@ -772,6 +796,16 @@ $('body').on('click', '#surveyNext', function () {
     $('.wrapper').removeClass('bg8');
     $('.wrapper').removeClass('bg9');   
     var nums = Math.floor(Math.random() * 9);
+    var pg = localStorage["curpage"];
+    if (pg == 1 || pg == 4 || pg == 7 || pg == 9) {
+        nums = 0;
+    }
+    if (pg == 2 || pg == 10 || pg == 11) {
+        nums = 1;
+    }
+    if (pg == 7 || pg == 8 || pg == 9) {
+        nums = 4;
+    }
     $('.wrapper').addClass('bg'+nums);
     $(".wrapper").animate({ width: 'toggle' }, 500);
     $('#surveyElement').show(500);
@@ -789,6 +823,16 @@ $('body').on('click', '#surveyPrev', function () {
     $('.wrapper').removeClass('bg7');
     $('.wrapper').removeClass('bg8');
     $('.wrapper').removeClass('bg9');   
+    var pg = localStorage["curpage"];
+    if (pg == 1 || pg == 4 || pg == 7 || pg == 9) {
+        nums = 0;
+    }
+    if (pg == 2 || pg == 10 || pg == 11) {
+        nums = 1;
+    }
+    if (pg == 7 || pg == 8 || pg == 9) {
+        nums = 4;
+    }
     var nums = Math.floor(Math.random() * 9);
     $('.wrapper').addClass('bg'+nums);
     $(".wrapper").animate({ width: 'toggle' },500);

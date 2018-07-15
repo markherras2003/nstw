@@ -1,4 +1,6 @@
-var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
+//var mainurl = 'http://192.168.1.20/nstw-new/nstw/';
+var mainurl = 'http://192.168.1.20/marketplace-evaluation/';
+
 $(".refresh-overlay").addClass('visible');
 
 
