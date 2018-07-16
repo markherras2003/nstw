@@ -702,13 +702,81 @@ var json = {
             questions: [
 
 
-                {
+               /* {
                     type: "text",
                     name: "winwin",
                     isRequired: true,
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
-                    title: "Please choose a number from [1-18] for a chance to win?",
+                    title: "",
                     validators: [{type:"numeric", minValue: 1, maxValue: 18}],
+                },
+            */
+
+                {
+                    "type": "imagepicker",
+                    "name": "winwin",
+                    "isRequired": true,
+                    "colCount": 5,
+                    "title": "Please choose a number from [1-18] for a chance to win?",
+                    "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
+                    "choices": [
+                        {
+                            "value": "1",
+                            "imageLink": "images/numbers/1.png"
+                        }, {
+                            "value": "2",
+                            "imageLink": "images/numbers/2.png"
+                        }, {
+                            "value": "3",
+                            "imageLink": "images/numbers/3.png"
+                        }, {
+                            "value": "4",
+                            "imageLink": "images/numbers/4.png"
+                        }, {
+                            "value": "5",
+                            "imageLink": "images/numbers/5.png"
+                        }, {
+                            "value": "6",
+                            "imageLink": "images/numbers/6.png"
+                        },  {
+                            "value": "7",
+                            "imageLink": "images/numbers/7.png"
+                        },   {
+                            "value": "8",
+                            "imageLink": "images/numbers/8.png"
+                        },   {
+                            "value": "9",
+                            "imageLink": "images/numbers/9.png"
+                        },   {
+                            "value": "10",
+                            "imageLink": "images/numbers/10.png"
+                        },   {
+                            "value": "11",
+                            "imageLink": "images/numbers/11.png"
+                        },   {
+                            "value": "12",
+                            "imageLink": "images/numbers/12.png"
+                        },   {
+                            "value": "13",
+                            "imageLink": "images/numbers/13.png"
+                        },   {
+                            "value": "14",
+                            "imageLink": "images/numbers/14.png"
+                        },   {
+                            "value": "15",
+                            "imageLink": "images/numbers/15.png"
+                        },   {
+                            "value": "16",
+                            "imageLink": "images/numbers/16.png"
+                        }, {
+                            "value": "17",
+                            "imageLink": "images/numbers/17.png"
+                        }, {
+                            "value": "18",
+                            "imageLink": "images/numbers/18.png"
+                        },
+                        
+                    ],                  
                 },
 
 
