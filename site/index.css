@@ -411,7 +411,7 @@ div.sv_q_imgsel.checked img {
     padding:0px;
     text-align: left;
     margin-top:  50px!important;
-    margin-left: 60px;
+    margin-left: 70px;
     font-weight: 600;
 }
 
@@ -453,6 +453,11 @@ div#sp_100,#sp_101,#sp_102,#sp_103,#sp_104,#sp_105,#sp_106,#sp_107,#sp_108,#sp_1
     padding-left: 15%;
     margin: 0px auto;
     margin-top: 100px;
+}
+
+div#sq_101 {
+
+    margin-top: 125px;
 }
 
 div#sp_100 {
@@ -498,7 +503,7 @@ div#sq_114 {
 }
 
 div#sp_114 {
-    margin-top: 100px;
+    margin-top: 373px;
     padding-left: 20%;
 }
 
@@ -508,9 +513,16 @@ div#sp_115 {
 }
 
 div#sp_116 {
-    margin-top: 44px;
+    margin-top: 310px;
     padding-left: 20%;
 }
+
+
+div#sp_117 {
+    margin-top: 25px;
+    padding-left: 20%;
+}
+
 
 input#sq_117i {
     margin-top: 65px;
@@ -551,7 +563,7 @@ div#sq_114 .sv_qcbc.form-inline {
 }
 
 #sq_102,#sq_103,#sq_108 {
-    margin-top: 225px;
+    margin-top: 20px;
 }
 
 #sq_103 {

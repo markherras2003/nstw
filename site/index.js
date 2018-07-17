@@ -1,5 +1,7 @@
-var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
-//var mainurl = 'http://192.168.1.20/marketplace/';
+//var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
+var mainurl = 'http://192.168.1.20/marketplace/';
+//var mainurl = 'http://localhost/nstw/nstw/';
+
 function doOnCurrentPageChanged(survey) {
  
 
@@ -82,7 +84,7 @@ var json = {
                 {
                     type: "html",
                     name: "info",
-                    html: "<div style='position:absolute;top:20%;left:40%;background:#fff;padding:5px;'><img src='images/logos.png' alt=''></div><h3 id='ss'>www.oneSTore.ph</h3><h3 id='ee'>Evaluate Us To Win a Prize</h3><h3 id='rr'><a href='onclick=survey.nextPage();'>Go</a></h3>",
+                    html: "<div style='position:absolute;top:20%;left:40%;background:#fff;padding:5px;'><img src='images/logos.png' alt=''></div><h3 id='ss'>www.oneSTore.ph</h3><h3 id='ee'>Evaluate Us To Win a Prize</h3><h3 id='rr'><a id='nextDestination' href='onclick=survey.nextPage();'>Go</a></h3>",
                 },
 
         ]
@@ -844,7 +846,7 @@ survey.onComplete.add(function (result) {
         },
         success: function (data) {
             if (data == 'success') {
-                if (winwin == mywin) {
+                if (winwin == mywin || winwin==5  || winwin==8 || winwin==13 ||winwin==18) {
                     document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;font-size:28px;'><h3 style='color:red;font-size:48px;'>You won a Prize</h3><br/>Redirecting in few seconds or Click <a href='index.html'>here</a></div>"; 
                     setTimeout(() => {
                         window.location.href  = 'index.html';
@@ -935,7 +937,7 @@ $(function(){
     // Callback function references the event target and adds the 'swipeleft' class to it
     function swipeleftHandler( event ){
         //$(event.target).addClass("swipeleft");
-        $("#surveyNext").click();
+   
         
         //$("#surveyComplete").click();
     }
@@ -950,9 +952,9 @@ $(function(){
      }
   });
 
-  
-
-
+  $('body').on('click', '#nextDestination', function () {
+    $("#surveyNext").click();
+  });   
   doOnCurrentPageChanged(survey);
 
 
