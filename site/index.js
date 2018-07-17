@@ -1,5 +1,5 @@
-//var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
-var mainurl = 'http://192.168.1.20/marketplace/';
+var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
+//var mainurl = 'http://192.168.1.20/marketplace/';
 function doOnCurrentPageChanged(survey) {
  
 
@@ -43,7 +43,9 @@ var f = survey.currentPageNo;
     
     }
 
-
+    function myNext() {
+       
+    }
 
 
 Survey.defaultBootstrapCss.navigationButton = "btn btn-green";
@@ -73,6 +75,18 @@ var json = {
     showNavigationButtons: false,
 
     pages: [
+    
+        {
+            questions: [
+      
+                {
+                    type: "html",
+                    name: "info",
+                    html: "<div style='position:absolute;top:20%;left:40%;background:#fff;padding:5px;'><img src='images/logos.png' alt=''></div><h3 id='ss'>www.oneSTore.ph</h3><h3 id='ee'>Evaluate Us To Win a Prize</h3><h3 id='rr'><a href='onclick=survey.nextPage();'>Go</a></h3>",
+                },
+
+        ]
+    },
     
     
         {

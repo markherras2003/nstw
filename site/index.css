@@ -407,6 +407,39 @@ div.sv_q_imgsel.checked img {
     display: none!important;
 }
 
+#ee {
+    padding:0px;
+    text-align: left;
+    margin-top:  50px!important;
+    margin-left: 60px;
+    font-weight: 600;
+}
+
+#ss {
+    padding: 0px;
+    margin: 0px;
+    font-size: 21px;
+    margin-left: -345px;
+    margin-top: 150px;
+    text-transform: none;
+}
+
+#rr {
+    padding: 0px;
+    margin-top: 50px;
+    margin-left: -360px;
+    font-weight: 600;
+}
+#rr a{
+    width: 350px!important;
+    display: inline-block;
+    background: #2c79ce;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+    box-shadow: #212121 1px 0.5px 1px 0.5px;
+}
+
 .alert-danger {
     background: #ff91be!important;
 }
