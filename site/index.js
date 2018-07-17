@@ -774,6 +774,12 @@ var json = {
                         }, {
                             "value": "18",
                             "imageLink": "images/numbers/18.png"
+                        }, {
+                            "value": "19",
+                            "imageLink": "images/numbers/19.png"
+                        }, {
+                            "value": "20",
+                            "imageLink": "images/numbers/20.png"
                         },
                         
                     ],                  
