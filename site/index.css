@@ -403,6 +403,10 @@ div.sv_q_imgsel.checked img {
    font-size: 2em;
 }
 
+.visible {
+    display: none!important;
+}
+
 .alert-danger {
     background: #ff91be!important;
 }

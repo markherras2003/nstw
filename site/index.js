@@ -1,4 +1,4 @@
-//var mainurl = 'http://192.168.1.20/nstw-new/nstw/';
+//var mainurl = 'http://192.168.1.222/nstw-new/nstw/';
 var mainurl = 'http://192.168.1.20/marketplace/';
 function doOnCurrentPageChanged(survey) {
  
@@ -192,7 +192,7 @@ var json = {
                     isRequired: true,
                     choices: [
                         "Yes", "No" 
-                    ],
+                    ]
                     colCount: 0
                 },
                 */
@@ -717,7 +717,7 @@ var json = {
                     "name": "winwin",
                     "isRequired": true,
                     "colCount": 5,
-                    "title": "Please choose a number from [1-18] for a chance to win?",
+                    "title": "Please choose a number from [1-20] for a chance to win?",
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
                     "choices": [
                         {
@@ -831,7 +831,7 @@ survey.onComplete.add(function (result) {
         success: function (data) {
             if (data == 'success') {
                 if (winwin == mywin) {
-                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;font-size:28px;'>You won a prize<br/>Redirecting in few seconds or Click <a href='index.html'>here</a></div>"; 
+                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;font-size:28px;'><h3 style='color:red;font-size:48px;'>You won a Prize</h3><br/>Redirecting in few seconds or Click <a href='index.html'>here</a></div>"; 
                     setTimeout(() => {
                         window.location.href  = 'index.html';
                     }, 20000);
