@@ -2,7 +2,7 @@
 include "db.php";
 $q ='';
 
-$posting_type = $_GET["type"];//$_POST["type"];
+$posting_type =$_POST["type"]; //$_GET["type"];//
 $data=array();
 
 if ($posting_type=="Gender") {
