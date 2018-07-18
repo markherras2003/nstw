@@ -329,7 +329,7 @@ var json = {
                 {
                     "type": "imagepicker",
                     "name": "marketplace",
-                    "title": "How did you know about the Marketplace?",
+                    "title": "How did you know about the OneSTore Markertplace?",
                     "visibleIf": "{haveAttend} = 'Yes' or {haveAttend} = 'No'",
                     "isRequired": true,
                     "colCount": 5,
