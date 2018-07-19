@@ -11,6 +11,11 @@ body {
     overflow-x: hidden;
 }
 
+body#bg2 {
+    overflow-y: scroll;
+
+}
+
 .wrapper.bg0 {
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     /*background:linear-gradient(rgba(16, 181, 223, 0.418),rgba(230, 51, 185, 0.75)),url(images/sm-bg1.png)!important; */
