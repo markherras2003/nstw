@@ -847,12 +847,12 @@ survey.onComplete.add(function (result) {
         success: function (data) {
             if (data == 'success') {
                 if (winwin == mywin || winwin==5  || winwin==8 || winwin==13 ||winwin==18) {
-                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;font-size:28px;'><h3 style='font-weight:600;color:#fff;font-size:48px;'>You won a Prize</h3><br/>Redirecting in few seconds or Click <a href='index.html'>here</a></div>"; 
+                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;font-size:28px;'><h3 style='font-weight:600;color:#fff;font-size:64px;'>You won a Prize</h3><br/>Redirecting in few seconds or Click <a href='index.html'>here</a></div>"; 
                     setTimeout(() => {
                         window.location.href  = 'index.html';
                     }, 20000);
                 } else {
-                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'><h3 style='color:#fff;font-size:48px;font-weight:600;'>Sorry Try Again Next Time</h3> Redirecting in few seconds or Click <a href='index.html'>here</a></div>";  
+                    document.querySelector('#surveyResult').innerHTML = "<div style='text-align: center;padding-bottom: 15px;'><h3 style='color:#fff;font-size:64px;font-weight:600;'>Sorry Try Again Next Time</h3> Redirecting in few seconds or Click <a href='index.html'>here</a></div>";  
                     setTimeout(() => {
                         window.location.href  = 'index.html';
                     }, 5000);
