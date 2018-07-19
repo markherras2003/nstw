@@ -390,7 +390,7 @@ var json = {
                     "name": "havePurchased",
                     "isRequired": true,
                     "colCount": 4,
-                    "title": "Have you purchased anything from Marketplace?",
+                    "title": "Have you purchased anything from OneSTore Marketplace?",
                     "choices": [
                         {
                             "value": "Yes",
@@ -587,7 +587,7 @@ var json = {
                     "isRequired": true,
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased}='Yes'",
                      "colCount": 5,
-                    "title": "How will you rate your overall experience in the marketplace?",
+                    "title": "How will you rate your overall experience in the OneSTore Marketplace?",
                     "choices": [
                         {
                             "value": "1",
@@ -630,7 +630,7 @@ var json = {
                     "name": "thumbs",
                     "isRequired": true,
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
-                    "title": "How likely will you recommend Marketplace to your family and friends?",
+                    "title": "How likely will you recommend OneSTore Marketplace to your family and friends?",
                     "choices": [
                         {
                             "value": "1",
@@ -660,7 +660,7 @@ var json = {
                     "name": "insights",
                     "isRequired": true,
                     "colCount": 1,
-                    "title": "Your insights about the Marketplace :",
+                    "title": "Your insights about the OneSTore Marketplace :",
                     "multiSelect": true,
                     "visibleIf": "{havePurchased} = 'No' or {havePurchased} = 'Yes'",
                     "choices": [
