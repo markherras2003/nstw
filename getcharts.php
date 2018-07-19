@@ -26,7 +26,7 @@ if ($posting_type=="Transaction") {
   FORMAT((fngetFeedback(4,'transaction')) / COUNT(*), 2) * 100 AS`satisfied`,
   FORMAT((fngetFeedback(5,'transaction')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
-   FROM `tbl_register`");
+   FROM `tbl_register` WHERE `transaction`<>0");
 }
 if ($posting_type=="Pricing") {
   $q=mysqli_query($con,"SELECT 
@@ -36,7 +36,7 @@ if ($posting_type=="Pricing") {
   FORMAT((fngetFeedback(4,'pricing')) / COUNT(*), 2) * 100 AS`satisfied`,
   FORMAT((fngetFeedback(5,'pricing')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
-   FROM `tbl_register`");
+   FROM `tbl_register` WHERE `pricing`<>0");
 }
 if ($posting_type=="Relationship") {
   $q=mysqli_query($con,"SELECT 
@@ -46,7 +46,7 @@ if ($posting_type=="Relationship") {
   FORMAT((fngetFeedback(4,'relationship')) / COUNT(*), 2) * 100 AS`satisfied`,
   FORMAT((fngetFeedback(5,'relationship')) / COUNT(*), 2) * 100 AS `verysatisfied`,
   COUNT(*) AS respondents
-   FROM `tbl_register`");
+   FROM `tbl_register` WHERE `relationship`<>0");
 }
 if ($posting_type=="Overall") {
   $q=mysqli_query($con,"SELECT 
@@ -58,6 +58,31 @@ if ($posting_type=="Overall") {
   COUNT(*) AS respondents
    FROM `tbl_register`");
 }
+
+
+if ($posting_type=="Thumbs") {
+  $q=mysqli_query($con,"SELECT 
+  FORMAT((fngetFeedback(0,'thumbs')) / COUNT(*), 2) * 100 AS `Dislike`,
+  FORMAT((fngetFeedback(1,'thumbs')) / COUNT(*), 2) * 100 AS `Like`,
+  COUNT(*) AS respondents
+   FROM `tbl_register`");
+  }
+
+  if ($posting_type=="Attended") {
+    $q=mysqli_query($con,"SELECT 
+    FORMAT((fngetFeedback(0,'attended')) / COUNT(*), 2) * 100 AS `notattended`,
+    FORMAT((fngetFeedback(1,'attended')) / COUNT(*), 2) * 100 AS `attended`,
+    COUNT(*) AS respondents
+     FROM `tbl_register`");
+    }
+  if ($posting_type=="Purchase") {
+      $q=mysqli_query($con,"SELECT 
+      FORMAT((fngetFeedback(0,'purchase')) / COUNT(*), 2) * 100 AS `nopurchase`,
+      FORMAT((fngetFeedback(1,'purchase')) / COUNT(*), 2) * 100 AS `purchase`,
+      COUNT(*) AS respondents
+       FROM `tbl_register`");
+    }
+
 while ($row=mysqli_fetch_object($q)){
  $data[]=$row;
 }

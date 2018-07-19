@@ -543,7 +543,7 @@ $.ajax({
 $.ajax({
         type: "POST",
         url: mainurl+"getcharts.php",
-        data: { type : 'Relationship'},
+        data: { type : 'Overall'},
         dataType: "json",
         crossDomain: true,
         cache: false,
@@ -663,3 +663,194 @@ jQuery(function ($) {
 });
 
 
+
+
+//Gender Charts
+$.ajax({
+    type: "POST",
+    url: mainurl+"getcharts.php",
+    data: { type : 'Thumbs'},
+    dataType: "json",
+    crossDomain: true,
+    cache: false,
+    beforeSend: function() { 
+    },
+    success: function (data) {
+        //xgenders = JSON.stringify(data);
+    
+            $.each(data, function(i, field) {
+            localStorage["like"] = field.Like;
+            localStorage["dislike"] = field.Dislike;
+            localStorage["respondents"] = field.respondents;   localStorage["respondents"] = field.respondents;
+            });
+        Highcharts.chart('thumbsChart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Thumbs Up Chart'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f}% Total of {point.y} Thumbs #Respondents:' +localStorage["respondents"],
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    } 
+                }
+            },
+            series: [{
+                name: 'Thumbs',
+                colorByPoint: true,
+                data: [{
+                    name: 'Like',
+                    y: parseFloat(localStorage["like"]),
+                    color: '#8e44ad',
+                    },{
+                    name: 'Dislike',
+                    y: parseFloat(localStorage["dislike"]),
+                    color: '#212121',
+                    
+                }]
+            }]
+        });
+    }
+});
+
+
+
+
+//Relationship
+$.ajax({
+    type: "POST",
+    url: mainurl+"getcharts.php",
+    data: { type : 'Attended'},
+    dataType: "json",
+    crossDomain: true,
+    cache: false,
+    beforeSend: function() { 
+    },
+    success: function (data) {
+        //xgenders = JSON.stringify(data);
+            $.each(data, function(i, field) {
+            localStorage["attended"] = field.attended;
+            localStorage["notattended"] = field.notattended;
+            localStorage["respondents"] = field.respondents;
+            });
+        Highcharts.chart('attendedChart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'area'
+            },
+            title: {
+                text: 'Last Year NSTW Attended Chart'
+            },
+
+            tooltip: {
+                pointFormat: '{series.name}</b>'
+            },
+            plotOptions: {
+                area: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b> - {point.y}%',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'Last Year NSTW Attended'+ '  #Respondents:' +localStorage["respondents"],
+                data: [{
+                    name: 'Attended',
+                    y: parseInt(localStorage["attended"]),
+                    color: '#c0392b',
+                    },{
+                    name: 'NotAttended',
+                    y: parseInt(localStorage["notattended"]),
+                    color: '#f1c40f',
+                    }
+            ]
+            }]
+            
+        });
+    }
+});
+
+
+
+//Transaction
+$.ajax({
+    type: "POST",
+    url: mainurl+"getcharts.php",
+    data: { type : 'Purchase'},
+    dataType: "json",
+    crossDomain: true,
+    cache: false,
+    beforeSend: function() { 
+    },
+    success: function (data) {
+        //xgenders = JSON.stringify(data);
+        $.each(data, function (i, field) {
+            localStorage["purchase"] = field.purchase;
+            localStorage["nopurchase"] = field.nopurchase;
+            localStorage["respondents"] = field.respondents;
+        });
+        Highcharts.chart('purchaseChart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'bar'
+            },
+            title: {
+                text: 'Purchased Product at OneStore MarketPlace Chart'
+            },
+            tooltip: {
+                pointFormat: '{series.name}</b>'
+            },
+            plotOptions: {
+                bar: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b> - {point.y}%',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: 'List of Who Purchase at OneStore MarketPlace Chart a Total of ?'+ '  #Respondents:' +localStorage["respondents"],
+                data: [{
+                    name: 'Yes',
+                    y: parseInt(localStorage["purchase"]),
+                    color: '#c0392b',
+                    },{
+                    name: 'No',
+                    y: parseInt(localStorage["nopurchase"]),
+                    color: '#f1c40f',
+                    }, 
+            ]
+            }]
+            
+        });
+    }
+});
