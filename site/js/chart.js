@@ -794,7 +794,7 @@ $.ajax({
 
 
 
-//Transaction
+//Purchase
 $.ajax({
     type: "POST",
     url: mainurl+"getcharts.php",
@@ -854,3 +854,26 @@ $.ajax({
         });
     }
 });
+
+
+
+//Purchase
+$.ajax({
+    type: "POST",
+    url: mainurl+"getcharts.php",
+    data: { type : 'Reactions'},
+    dataType: "json",
+    crossDomain: true,
+    cache: false,
+    beforeSend: function() { 
+    },
+    success: function (data) {
+        //xgenders = JSON.stringify(data);
+        $.each(data, function (i, field) {
+            var full_name = field.full_name;
+            var reactions = field.reactions;
+            var markup = "<tr><td>" + full_name + "<td>" + reactions + "</td><td>";
+            $("table#mysuggestion tbody").append(markup);
+        });
+    }
+}); 
