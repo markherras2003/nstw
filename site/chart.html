@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="./index.css">
 </head>
-<body>
+<body style="overflow-y: scroll">
 <div class="wrapper">
         <div class="refresh-overlay">
             <div class="refresh-img"><img src="images/loading.gif" height="75" width="75" alt=""></div>
@@ -29,7 +29,7 @@
 
             <div class="row">
                 <div class="col-lg-3">
-                    <div id="genderChart" class="chart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                    <div id="genderChart" class="chart" style="min-width: 310px; height: 275px; margin: 0 auto;padding: 10px;"></div>
                 </div>
                 <div class="col-lg-3">
                     <div id="organizationChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
@@ -38,27 +38,57 @@
                     <div id="eventChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
                 </div>
                 <div class="col-lg-3">
-                    <div id="marketplaceChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                    <div id="marketplaceChart" style="min-width: 310px; height: 275px; margin: 0 auto;padding: 10px;"></div>
                 </div>
             </div>
     
             <div class="row">
-                <div class="col-lg-6">
-                    <div id="transactionChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                <div class="col-lg-6"  style="margin-top:25px">
+                    <div id="transactionChart" style="min-width: 310px; height: 275px; margin: 0 auto;padding: 10px;"></div>
                 </div>
-                <div class="col-lg-6">
-                    <div id="pricingChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                <div class="col-lg-6"  style="margin-top:25px">
+                    <div id="pricingChart" style="min-width: 310px; height: 275px; margin: 0 auto;padding: 10px;"></div>
                 </div>
            
             </div>
     
             <div class="row">
-                <div class="col-lg-6">
-                    <div id="relationshipChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                <div class="col-lg-6" style="margin-top:25px">
+                    <div id="relationshipChart" style="min-width: 310px; height: 275px; margin: 0 auto;padding: 10px;"></div>
                 </div>
-                <div class="col-lg-6">
-                    <div id="overallChart" style="min-width: 310px; height: 275px; margin: 0 auto"></div>
+                <div class="col-lg-6" style="margin-top:25px">
+                    <div id="overallChart" style="min-width: 310px; height: 275px; margin: 0 auto;padding: 10px;"></div>
                 </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-4" style="margin-top:25px">
+                            <div id="thumbsChart" style="min-width: 310px; max-height: 960px; height: 275px;  margin: 0 auto;padding:10px;"></div>
+                    </div>
+                    <div class="col-lg-4" style="margin-top:25px">
+                            <div id="attendedChart" style="min-width: 310px; max-height: 960px; height: 257px;  margin: 0 auto;padding: 10px;"></div>
+                    </div>
+                    <div class="col-lg-4" style="margin-top:25px">
+                            <div id="purchaseChart" style="min-width: 310px; max-height: 960px; height: 257px;  margin: 0 auto;padding: 10px;"></div>
+                    </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-lg-12" style="margin-top:25px">
+                            <div style="display:block;background: #ffffff;width:99%;margin-top:50px;margin-bottom:50px;height: auto;margin: 0px auto;padding: 100px;">
+
+                                    <table id="mysuggestion" class="table">
+                                        <thead>
+                                            <tr>
+                                            <th>Name</th>
+                                            <th>Reaction</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                    </div>
             </div>
         </div>
     
